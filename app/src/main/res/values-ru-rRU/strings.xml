@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">SaveMoney</string>
+    <string name="Logo">Логотип</string>
+    <string name="Welcome">Добро пожаловать!</string>
+    <string name="Createnewaccount">Создать новый аккаунт</string>
+    <string name="Login">Войти</string>
+</resources>

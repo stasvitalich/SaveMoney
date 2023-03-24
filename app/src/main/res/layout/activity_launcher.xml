@@ -25,6 +25,7 @@
         android:layout_marginBottom="32dp"
         android:background="@drawable/mylogo"
         android:contentDescription="@string/Logo"
+        android:foregroundGravity="center_vertical"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

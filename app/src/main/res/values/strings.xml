@@ -1,4 +1,9 @@
 <resources>
     <string name="app_name">SaveMoney</string>
     <string name="Logo">White logo of application</string>
+    <string name="Welcome">Weclome!</string>
+    <string name="Createnewaccount">Create new account</string>
+    <string name="Login">Log in</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>
