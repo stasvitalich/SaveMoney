@@ -1,4 +1,4 @@
-package com.example.savemoney
+package com.example.savemoney.screens
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment

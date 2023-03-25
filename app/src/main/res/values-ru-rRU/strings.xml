@@ -5,4 +5,10 @@
     <string name="Welcome">Добро пожаловать!</string>
     <string name="Createnewaccount">Создать новый аккаунт</string>
     <string name="Login">Войти</string>
+    <string name="hello_blank_fragment">Привет</string>
+    <string name="Forgot">Забыли пароль</string>
+    <string name="Password">Пароль</string>
+    <string name="Email">Эл. почта</string>
+    <string name="Required">Обязательное поле</string>
+    <string name="LoginToContinue">Войдите, чтобы продолжить</string>
 </resources>

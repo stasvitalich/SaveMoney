@@ -39,4 +39,6 @@ class LauncherActivity : AppCompatActivity() {
         }, SPLASH_TIME_OUT)
 
     }
+
+
 }
