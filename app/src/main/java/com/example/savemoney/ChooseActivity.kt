@@ -20,5 +20,4 @@ class ChooseActivity : AppCompatActivity() {
 
     }
 
-
 }
