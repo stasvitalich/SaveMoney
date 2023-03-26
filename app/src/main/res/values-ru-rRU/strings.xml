@@ -11,4 +11,5 @@
     <string name="Email">Эл. почта</string>
     <string name="Required">Обязательное поле</string>
     <string name="LoginToContinue">Войдите, чтобы продолжить</string>
+    <string name="Back">Назад</string>
 </resources>

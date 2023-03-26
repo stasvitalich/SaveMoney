@@ -4,13 +4,17 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
     app:startDestination="@id/chooseFragment2">
+
     <fragment
         android:id="@+id/chooseFragment2"
         android:name="com.example.savemoney.screens.ChooseFragment2"
-        android:label="ChooseFragment2" >
+        android:label="ChooseFragment2"
+        >
         <action
             android:id="@+id/action_chooseFragment2_to_loginFragment"
-            app:destination="@id/loginFragment" />
+            app:destination="@id/loginFragment"
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:exitAnim="@anim/nav_default_exit_anim" />
     </fragment>
     <fragment
         android:id="@+id/loginFragment"
@@ -19,6 +23,8 @@
         tools:layout="@layout/fragment_login" >
         <action
             android:id="@+id/action_loginFragment_to_chooseFragment2"
-            app:destination="@id/chooseFragment2" />
+            app:destination="@id/chooseFragment2"
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:exitAnim="@anim/nav_default_exit_anim" />
     </fragment>
 </navigation>

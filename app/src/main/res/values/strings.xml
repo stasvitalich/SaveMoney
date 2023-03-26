@@ -11,4 +11,5 @@
     <string name="Email">E-mail address</string>
     <string name="Required">Required</string>
     <string name="LoginToContinue">Log in to continue</string>
+    <string name="Back">Back</string>
 </resources>

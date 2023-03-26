@@ -18,18 +18,7 @@ class ChooseActivity : AppCompatActivity() {
         binding = ActivityChooseBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        singInFragment()
-
-        navController = Navigation.findNavController(this, R.id.place_holder)
-        MAIN = this
     }
 
-    private fun singInFragment() {
-        supportFragmentManager
-            .beginTransaction()
-            .replace(R.id.place_holder, ChooseFragment2.newInstance())
-            .addToBackStack(null)
-            .commit()
-    }
 
 }

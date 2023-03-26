@@ -60,7 +60,9 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
                 android:fontFamily="@font/montserrat_medium"
-                android:hint="@string/Email" />
+                android:hint="@string/Email"
+                android:inputType="textEmailAddress|textNoSuggestions"
+                />
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
@@ -87,6 +89,7 @@
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/montserrat_medium"
                 android:hint="@string/Password"
+                android:inputType="textPassword"
                 android:maxLength="16" />
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -99,16 +102,16 @@
             android:text="@string/Login"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="@+id/textView8"
-            app:layout_constraintStart_toStartOf="@+id/textView7" />
+            app:layout_constraintStart_toStartOf="@+id/backText" />
 
         <TextView
-            android:id="@+id/textView7"
+            android:id="@+id/backText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
             android:layout_marginBottom="32dp"
             android:fontFamily="@font/montserrat_medium"
-            android:text="@string/Login"
+            android:text="@string/Back"
             android:textColor="@color/seaweed"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent" />
