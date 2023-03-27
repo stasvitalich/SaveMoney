@@ -12,4 +12,9 @@
     <string name="Required">Required</string>
     <string name="LoginToContinue">Log in to continue</string>
     <string name="Back">Back</string>
+    <string name="InvalidEmailAddress">Invalid Email Address</string>
+    <string name="Minimum8">Minimum 8 characters</string>
+    <string name="Upper_case">Must Contain 1 Upper-case Character</string>
+    <string name="Lower_case">Must Contain 1 Lower-case Character</string>
+    <string name="Special_Character">Must Contain 1 Special Character</string>
 </resources>

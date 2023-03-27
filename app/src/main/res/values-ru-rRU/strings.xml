@@ -12,4 +12,9 @@
     <string name="Required">Обязательное поле</string>
     <string name="LoginToContinue">Войдите, чтобы продолжить</string>
     <string name="Back">Назад</string>
+    <string name="InvalidEmailAddress">Неверный адрес эл. почты</string>
+    <string name="Minimum8">Минимум 8 символов</string>
+    <string name="Upper_case">Минимум 1 заглавная буква</string>
+    <string name="Lower_case">Минимум 1 строчная буква</string>
+    <string name="Special_Character">Минимум 1 спец. символ</string>
 </resources>
