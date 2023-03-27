@@ -40,6 +40,9 @@ class ChooseFragment2 : Fragment() {
         binding.singInButton.setOnClickListener {
             Navigation.findNavController(view).navigate(R.id.action_chooseFragment2_to_loginFragment)
         }
+        binding.registerButton.setOnClickListener {
+            Navigation.findNavController(view).navigate(R.id.action_chooseFragment2_to_registrationFragment)
+        }
 
     }
 

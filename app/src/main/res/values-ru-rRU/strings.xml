@@ -6,7 +6,6 @@
     <string name="Createnewaccount">Создать новый аккаунт</string>
     <string name="Login">Войти</string>
     <string name="hello_blank_fragment">Привет</string>
-    <string name="Forgot">Забыли пароль</string>
     <string name="Password">Пароль</string>
     <string name="Email">Эл. почта</string>
     <string name="Required">Обязательное поле</string>
@@ -17,4 +16,8 @@
     <string name="Upper_case">Минимум 1 заглавная буква</string>
     <string name="Lower_case">Минимум 1 строчная буква</string>
     <string name="Special_Character">Минимум 1 спец. символ</string>
+    <string name="RegisterTo">Зарегистрируйтесь, чтобы продолжить</string>
+    <string name="Already">Уже есть аккаунт?</string>
+    <string name="Forgot">Забыли пароль?</string>
+
 </resources>
