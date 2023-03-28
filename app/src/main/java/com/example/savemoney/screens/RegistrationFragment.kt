@@ -8,14 +8,25 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.EditText
+import android.widget.Toast
 import androidx.navigation.Navigation
 
 import com.example.savemoney.R
 import com.example.savemoney.databinding.FragmentRegistrationBinding
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.ktx.auth
+import com.google.firebase.ktx.Firebase
 
 class RegistrationFragment : Fragment() {
 
     lateinit var binding: FragmentRegistrationBinding
+
+    val mAuth = Firebase.auth
+    private lateinit var emailEditText: EditText
+    private lateinit var passwordEditText: EditText
+
+
     private var invalidAddress = R.string.InvalidEmailAddress
     private var empty = R.string.Required
     private var minimum8 = R.string.Minimum8
@@ -31,6 +42,13 @@ class RegistrationFragment : Fragment() {
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+
+        emailEditText = binding.emailEditText
+        passwordEditText = binding.passwordEditText
+        binding.buttonRegister.setOnClickListener {
+            registerUser()
+        }
+
         binding.backText.setOnClickListener {
             view?.let { // Here we prevented application from unexpected closure
                 Navigation.findNavController(it).navigate(R.id.action_registrationFragment_to_chooseFragment2)
@@ -43,6 +61,35 @@ class RegistrationFragment : Fragment() {
         }
         emailFocusListener()
         passwordFocusListener()
+    }
+
+    private fun registerUser() {
+        val email = emailEditText.text.toString()
+        val password = passwordEditText.text.toString()
+
+        if (email.isEmpty()){
+            emailEditText.error = "Email is required"
+            emailEditText.requestFocus()
+            return
+        }
+
+        if (password.isEmpty()){
+            passwordEditText.error = "Password is required"
+            passwordEditText.requestFocus()
+            return
+        }
+
+        mAuth.createUserWithEmailAndPassword(email, password).addOnCompleteListener(requireActivity()) {task ->
+            if (task.isSuccessful){
+                Toast.makeText(context, "You've just created a new account", Toast.LENGTH_LONG).show()
+                view?.let { // Here we prevented application from unexpected closure
+                    Navigation.findNavController(it).navigate(R.id.action_registrationFragment_to_loginFragment)
+                }
+
+            } else{
+                Toast.makeText(context, task.exception?.message ?: "ERROR", Toast.LENGTH_LONG).show()
+            }
+        }
     }
 
 
