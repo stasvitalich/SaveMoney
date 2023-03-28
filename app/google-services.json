@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "6649399226",
+    "project_id": "savemoney-af0e5",
+    "storage_bucket": "savemoney-af0e5.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:6649399226:android:be048e8922650a00d1bf83",
+        "android_client_info": {
+          "package_name": "com.example.savemoney"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "6649399226-ij2ph5lp8sgurj2ceovcpl7rkehnrrgv.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDZEI415LlKXzu2fizIbylpDXohWSZoB9w"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "6649399226-ij2ph5lp8sgurj2ceovcpl7rkehnrrgv.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
