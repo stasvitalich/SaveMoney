@@ -21,4 +21,6 @@ class AppActivity : AppCompatActivity() {
         bottomNavigationView.setupWithNavController(navController)
 
     }
+
+
 }

@@ -19,4 +19,6 @@
     <string name="RegisterTo">Register to continue</string>
     <string name="Already">Already have an account?</string>
     <string name="Forgot">Forgot password?</string>
+    <string name="Exit">Exit</string>
+    <string name="Settings">Settings</string>
 </resources>

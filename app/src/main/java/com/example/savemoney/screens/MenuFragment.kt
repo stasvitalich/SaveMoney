@@ -21,35 +21,6 @@ class MenuFragment : Fragment() {
         return binding.root
     }
 
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        /*binding.bottomNavigationView.setOnNavigationItemSelectedListener { item ->
-            when (item.itemId) {
-
-                R.id.compare -> {
-                    Navigation.findNavController(requireView()).navigate(R.id.menuFragment)
-                    true
-                }
-
-                R.id.list -> {
-                    Navigation.findNavController(requireView()).navigate(R.id.action_menuFragment_to_listFragment)
-                    true
-                }
-
-                R.id.expenditure -> {
-                    Navigation.findNavController(requireView()).navigate(R.id.action_menuFragment_to_expenditureFragment)
-                    true
-                }
-
-                R.id.settings -> {
-                    Navigation.findNavController(requireView()).navigate(R.id.action_menuFragment_to_settingsFragment)
-                    true
-                }
-
-                else -> false
-            }
-        }*/
-    }
-
     companion object {
         @JvmStatic
         fun newInstance() = MenuFragment()
