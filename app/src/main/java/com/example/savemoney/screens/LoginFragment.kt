@@ -76,7 +76,7 @@ class LoginFragment : Fragment() {
             if (task.isSuccessful){
                 Toast.makeText(context, "Authorization was successful", Toast.LENGTH_LONG).show()
                 view?.let { // Here we prevented application from unexpected closure
-                    Navigation.findNavController(it).navigate(R.id.action_loginFragment_to_menuFragment)
+                    Navigation.findNavController(it).navigate(R.id.action_loginFragment_to_appActivity)
                 }
 
             } else{

@@ -1,16 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <item android:title="compare"
+    <item
         android:id="@+id/compare"
-        android:icon="@drawable/ic_baseline_difference_24"/>
-    <item android:title="list"
+        android:icon="@drawable/ic_baseline_difference_24"
+        android:orderInCategory="1"
+        android:title="compare" />
+    <item
         android:id="@+id/list"
-        android:icon="@drawable/ic_baseline_format_list_numbered_24"/>
-    <item android:title="expenditure"
+        android:icon="@drawable/ic_baseline_format_list_numbered_24"
+        android:orderInCategory="2"
+        android:title="list" />
+    <item
         android:id="@+id/expenditure"
-        android:icon="@drawable/ic_baseline_attach_money_24"/>
-    <item android:title="settings"
+        android:icon="@drawable/ic_baseline_attach_money_24"
+        android:orderInCategory="3"
+        android:title="expenditure" />
+    <item
         android:id="@+id/settings"
-        android:icon="@drawable/ic_baseline_settings_24"/>
+        android:icon="@drawable/ic_baseline_settings_24"
+        android:orderInCategory="4"
+        android:title="settings" />
 </menu>

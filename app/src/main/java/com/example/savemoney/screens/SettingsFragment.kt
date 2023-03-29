@@ -6,16 +6,17 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.example.savemoney.R
+import com.example.savemoney.databinding.FragmentSettingsBinding
 
 class SettingsFragment: Fragment() {
 
-
+    lateinit var binding: FragmentSettingsBinding
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_list, container, false)
+        binding = FragmentSettingsBinding.inflate(inflater)
+        return binding.root
     }
 
     companion object {

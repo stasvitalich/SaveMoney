@@ -6,16 +6,17 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.example.savemoney.R
+import com.example.savemoney.databinding.FragmentListBinding
 
 class ListFragment : Fragment() {
 
-
+    lateinit var binding: FragmentListBinding
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_list, container, false)
+        binding = FragmentListBinding.inflate(inflater)
+        return binding.root
     }
 
     companion object {

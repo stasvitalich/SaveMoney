@@ -22,31 +22,32 @@ class MenuFragment : Fragment() {
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        binding.bottomNavigationView.setOnItemSelectedListener { item ->
+        /*binding.bottomNavigationView.setOnNavigationItemSelectedListener { item ->
             when (item.itemId) {
+
                 R.id.compare -> {
-                    // Обработка нажатия на item "compare"
-                    Navigation.findNavController(view).navigate(R.id.menuFragment)
+                    Navigation.findNavController(requireView()).navigate(R.id.menuFragment)
                     true
                 }
+
                 R.id.list -> {
-                    // Обработка нажатия на item "list"
-                    Navigation.findNavController(view).navigate(R.id.action_menuFragment_to_listFragment)
+                    Navigation.findNavController(requireView()).navigate(R.id.action_menuFragment_to_listFragment)
                     true
                 }
+
                 R.id.expenditure -> {
-                    // Обработка нажатия на item "expenditure"
-                    Navigation.findNavController(view).navigate(R.id.action_menuFragment_to_expenditureFragment)
+                    Navigation.findNavController(requireView()).navigate(R.id.action_menuFragment_to_expenditureFragment)
                     true
                 }
+
                 R.id.settings -> {
-                    // Обработка нажатия на item "settings"
-                    Navigation.findNavController(view).navigate(R.id.action_menuFragment_to_settingsFragment)
+                    Navigation.findNavController(requireView()).navigate(R.id.action_menuFragment_to_settingsFragment)
                     true
                 }
+
                 else -> false
             }
-        }
+        }*/
     }
 
     companion object {

@@ -5,7 +5,6 @@ import android.os.Bundle
 import androidx.navigation.NavController
 import androidx.navigation.Navigation
 import com.example.savemoney.databinding.ActivityChooseBinding
-import com.example.savemoney.screens.ChooseFragment2
 
 
 class ChooseActivity : AppCompatActivity() {
@@ -17,7 +16,7 @@ class ChooseActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityChooseBinding.inflate(layoutInflater)
         setContentView(binding.root)
-
     }
+
 
 }

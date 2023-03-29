@@ -43,7 +43,6 @@ class ChooseFragment2 : Fragment() {
         binding.registerButton.setOnClickListener {
             Navigation.findNavController(view).navigate(R.id.action_chooseFragment2_to_registrationFragment)
         }
-
     }
 
       companion object {
