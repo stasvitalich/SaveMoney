@@ -21,7 +21,7 @@ class LoginFragment : Fragment() {
 
     lateinit var binding: FragmentLoginBinding
 
-    val mAuth = Firebase.auth
+    private val mAuth = Firebase.auth
     private lateinit var emailEditText: EditText
     private lateinit var passwordEditText: EditText
 
@@ -52,6 +52,13 @@ class LoginFragment : Fragment() {
                 Navigation.findNavController(it).navigate(R.id.action_loginFragment_to_chooseFragment2)
             }
         }
+
+        binding.forgotText.setOnClickListener {
+            view?.let{
+             Navigation.findNavController(it).navigate(R.id.action_loginFragment_to_forgotFragment)
+            }
+        }
+
         emailFocusListener()
         passwordFocusListener()
     }

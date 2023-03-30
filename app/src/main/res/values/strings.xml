@@ -21,4 +21,6 @@
     <string name="Forgot">Forgot password?</string>
     <string name="Exit">Exit</string>
     <string name="Settings">Settings</string>
+    <string name="PasswordRecovery">Password Recovery</string>
+    <string name="Recover">Recover Password</string>
 </resources>

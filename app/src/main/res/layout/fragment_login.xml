@@ -102,7 +102,7 @@
             android:fontFamily="@font/montserrat_medium"
             android:text="@string/Login"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="@+id/textView8"
+            app:layout_constraintEnd_toEndOf="@+id/forgotText"
             app:layout_constraintStart_toStartOf="@+id/backText" />
 
         <TextView
@@ -118,7 +118,7 @@
             app:layout_constraintStart_toStartOf="parent" />
 
         <TextView
-            android:id="@+id/textView8"
+            android:id="@+id/forgotText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginEnd="16dp"

@@ -21,5 +21,7 @@
     <string name="Forgot">Забыли пароль?</string>
     <string name="Exit">Выйти</string>
     <string name="Settings">Настройки</string>
+    <string name="PasswordRecovery">Восстановление пароля</string>
+    <string name="Recover">Восстановить пароль</string>
 
 </resources>
