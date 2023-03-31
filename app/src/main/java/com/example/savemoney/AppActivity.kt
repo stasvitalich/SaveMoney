@@ -22,5 +22,4 @@ class AppActivity : AppCompatActivity() {
 
     }
 
-
 }
