@@ -30,5 +30,6 @@
     <string name="Compare">Сравнить</string>
     <string name="Clear">Очистить</string>
     <string name="Save">Сэкономить</string>
+    <string name="ResultOfComparison">Здесь будет отображён результат сравнения</string>
 
 </resources>

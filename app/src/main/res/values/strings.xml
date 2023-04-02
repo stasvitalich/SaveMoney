@@ -30,4 +30,5 @@
     <string name="Compare">Compare</string>
     <string name="Clear">Clear</string>
     <string name="Save">Save</string>
+    <string name="ResultOfComparison">The result of the comparison will be displayed here</string>
 </resources>
