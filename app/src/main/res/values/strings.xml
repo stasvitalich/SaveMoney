@@ -23,4 +23,11 @@
     <string name="Settings">Settings</string>
     <string name="PasswordRecovery">Password Recovery</string>
     <string name="Recover">Recover Password</string>
+    <string name="Product1">Product 1</string>
+    <string name="Product2">Product 2</string>
+    <string name="Weight">Package weight in grams</string>
+    <string name="Price">Package price</string>
+    <string name="Compare">Compare</string>
+    <string name="Clear">Clear</string>
+    <string name="Save">Save</string>
 </resources>

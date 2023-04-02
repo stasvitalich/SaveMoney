@@ -2,11 +2,11 @@
     <!-- Base application theme. -->
     <style name="Theme.SaveMoney" parent="Theme.MaterialComponents.DayNight.NoActionBar">
         <!-- Primary brand color. -->
-        <item name="colorPrimary">@color/seaweed</item>
+        <item name="colorPrimary">#35496C</item>
         <item name="colorPrimaryVariant">@color/purple_700</item>
         <item name="colorOnPrimary">@color/white</item>
         <!-- Secondary brand color. -->
-        <item name="colorSecondary">@color/teal_200</item>
+        <item name="colorSecondary">#8396B5</item>
         <item name="colorSecondaryVariant">@color/seaweed</item>
         <item name="colorOnSecondary">@color/black</item>
         <!-- Status bar color. -->

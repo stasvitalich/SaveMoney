@@ -23,5 +23,12 @@
     <string name="Settings">Настройки</string>
     <string name="PasswordRecovery">Восстановление пароля</string>
     <string name="Recover">Восстановить пароль</string>
+    <string name="Product1">Продукт 1</string>
+    <string name="Product2">Продукт 2</string>
+    <string name="Weight">Вес упаковки в граммах</string>
+    <string name="Price">Цена упаковки</string>
+    <string name="Compare">Сравнить</string>
+    <string name="Clear">Очистить</string>
+    <string name="Save">Сэкономить</string>
 
 </resources>
