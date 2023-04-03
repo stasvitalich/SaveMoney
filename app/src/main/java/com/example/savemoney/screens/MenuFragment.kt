@@ -9,9 +9,15 @@ import androidx.lifecycle.ViewModelProvider
 import com.example.savemoney.R
 import com.example.savemoney.databinding.FragmentMenuBinding
 import androidx.navigation.Navigation
+import com.airbnb.lottie.LottieAnimationView
+import render.animations.Render
+import render.animations.Zoom
+import render.animations.*
 
 class MenuFragment : Fragment() {
 
+    private lateinit var animationView: LottieAnimationView
+    private lateinit var animationView2: LottieAnimationView
     lateinit var binding: FragmentMenuBinding
 
     override fun onCreateView(
@@ -20,17 +26,22 @@ class MenuFragment : Fragment() {
     ): View? {
         binding = FragmentMenuBinding.inflate(inflater)
         return binding.root
-
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-
+        animationView = binding.animationView
+        animationView2 = binding.animationView2
         calculations()
         clearFields()
     }
 
 
     private fun calculations(){
+
+        binding.apply {
+            animationView.visibility = View.INVISIBLE
+            animationView2.visibility = View.INVISIBLE
+        }
 
         binding.compareButton.setOnClickListener {
             val price1Text = binding.textPrice1.text.toString()
@@ -39,12 +50,12 @@ class MenuFragment : Fragment() {
             val price2Text = binding.textPrice2.text.toString()
             val weight2Text = binding.textWeight2.text.toString()
 
-            if (price1Text.isEmpty() || weight1Text.isEmpty()) {
-                binding.textRecomendation.text = null
-            }
-
-            if (price2Text.isEmpty() || weight2Text.isEmpty()) {
-                binding.textRecomendation.text = null
+            if (price1Text.isEmpty() && weight1Text.isEmpty() && price2Text.isEmpty() && weight2Text.isEmpty()){
+                binding.textRecomendation.text = getString(R.string.Nothing)
+            } else if (price1Text.isEmpty() || weight1Text.isEmpty()) {
+                binding.textRecomendation.text = getString(R.string.FillTheInformation2)
+            } else if (price2Text.isEmpty() || weight2Text.isEmpty()) {
+                binding.textRecomendation.text = getString(R.string.FillTheInformation)
             }
 
             var result1: Double = 0.0
@@ -91,14 +102,21 @@ class MenuFragment : Fragment() {
 
                 if (result1 > result2) {
                     binding.textRecomendation.text = "Продукт 1 дороже на $formattedDifference%"
-                    binding.imageThumb2.visibility = View.VISIBLE
+                    binding.animationView2.visibility = View.VISIBLE
+                    binding.animationView.visibility = View.INVISIBLE
+                    animationView2.playAnimation()
+
                 } else if (result1 < result2) {
                     binding.textRecomendation.text = "Продукт 2 дороже на $formattedDifference%"
-                    binding.imageThumb1.visibility = View.VISIBLE
+                    binding.animationView.visibility = View.VISIBLE
+                    binding.animationView2.visibility = View.INVISIBLE
+                    animationView.playAnimation()
+
                 } else {
                     binding.textRecomendation.text = "Стоимость продуктов одинакова"
-                    binding.imageThumb1.visibility = View.INVISIBLE
-                    binding.imageThumb2.visibility = View.INVISIBLE
+                    binding.animationView.visibility = View.INVISIBLE
+                    binding.animationView2.visibility = View.INVISIBLE
+
 
                 }
             }
@@ -117,8 +135,9 @@ class MenuFragment : Fragment() {
                 textRecomendation.text = null
 
                 textInputLayoutWeight1.requestFocus()
-                binding.imageThumb1.visibility = View.INVISIBLE
-                binding.imageThumb2.visibility = View.INVISIBLE
+                binding.animationView.visibility = View.INVISIBLE
+                binding.animationView2.visibility = View.INVISIBLE
+
             }
         }
     }

@@ -31,5 +31,8 @@
     <string name="Clear">Очистить</string>
     <string name="Save">Сэкономить</string>
     <string name="ResultOfComparison">Здесь будет отображён результат сравнения</string>
+    <string name="FillTheInformation">Вы не заполнили информацию о втором продукте</string>
+    <string name="FillTheInformation2">Вы не заполнили информацию о первом продукте</string>
+    <string name="Nothing">Сравнивать пока нечего</string>
 
 </resources>

@@ -31,4 +31,7 @@
     <string name="Clear">Clear</string>
     <string name="Save">Save</string>
     <string name="ResultOfComparison">The result of the comparison will be displayed here</string>
+    <string name="FillTheInformation">You have not filled in the information about the second product</string>
+    <string name="FillTheInformation2">You have not filled in the information about the first product</string>
+    <string name="Nothing">There is nothing to compare yet</string>
 </resources>
