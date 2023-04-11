@@ -4,22 +4,30 @@ import androidx.room.*
 import com.example.savemoney.data.entities.ProductEntity
 import kotlinx.coroutines.flow.Flow
 
+// DAO interface for working with the Grocery-table.
 @Dao
 interface GroceryDao {
 
+    // Inserts a new grocery item into the Grocery-table.
     @Insert
     suspend fun insert(productEntity: ProductEntity)
 
+    // Updates an existing grocery item in the Grocery-table.
     @Update
     suspend fun update(productEntity: ProductEntity)
 
+    // Deletes a grocery item from the Grocery-table.
     @Delete
     suspend fun delete(productEntity: ProductEntity)
 
+    // Retrieves all grocery items from the Grocery-table.
+    // Returns a Flow object containing a list of grocery items.
     @Query("SELECT * FROM Grocery_table")
-    fun fetchAllGroceries():Flow<List<ProductEntity>>
+    fun fetchAllGroceries(): Flow<List<ProductEntity>>
 
+    // Retrieves a grocery item from the Grocery-table by the given ID.
+    // param id The ID of the grocery item to be found.
+    // Returns a Flow object containing the found grocery item.
     @Query("SELECT * FROM Grocery_table where id=:id")
-    fun fetchGroceriesById(id:Int):Flow<ProductEntity>
-
+    fun fetchGroceriesById(id: Int): Flow<ProductEntity>
 }
