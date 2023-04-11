@@ -34,4 +34,5 @@
     <string name="FillTheInformation">You have not filled in the information about the second product</string>
     <string name="FillTheInformation2">You have not filled in the information about the first product</string>
     <string name="Nothing">There is nothing to compare yet</string>
+    <string name="Update">Last update:</string>
 </resources>

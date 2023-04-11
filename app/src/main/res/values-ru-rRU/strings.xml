@@ -34,5 +34,6 @@
     <string name="FillTheInformation">Вы не заполнили информацию о втором продукте</string>
     <string name="FillTheInformation2">Вы не заполнили информацию о первом продукте</string>
     <string name="Nothing">Сравнивать пока нечего</string>
+    <string name="Update">Последнее обновление:</string>
 
 </resources>
