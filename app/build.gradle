@@ -1,7 +1,12 @@
 plugins {
     id 'com.android.application'
     id 'org.jetbrains.kotlin.android'
+
+    // Plugin fo firebase
     id 'com.google.gms.google-services'
+
+    // Plugin for Room library
+    id 'kotlin-kapt'
 }
 
 android {
@@ -39,19 +44,33 @@ android {
 
 dependencies {
 
+    // Room library implementation
+    def room_version = "2.4.3"
+    def activityVersion = '1.6.0'
+    kapt("androidx.room:room-compiler:$room_version")
+    implementation("androidx.room:room-runtime:$room_version")
+    implementation "androidx.room:room-ktx:$room_version"
+    annotationProcessor("androidx.room:room-compiler:$room_version")
+    implementation("androidx.activity:activity-ktx:$activityVersion")
 
+    // Animations implementation
     implementation 'com.github.gayanvoice:android-animations-kotlin:1.0.1'
+
+    // Standart implementation
     implementation 'androidx.core:core-ktx:1.9.0'
     implementation 'androidx.appcompat:appcompat:1.6.1'
     implementation 'com.google.android.material:material:1.8.0'
     implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
     implementation 'com.google.firebase:firebase-auth-ktx:21.1.0'
+
+    // Implementation of fragments
     testImplementation 'junit:junit:4.13.2'
     androidTestImplementation 'androidx.test.ext:junit:1.1.5'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.1'
     implementation 'androidx.fragment:fragment-ktx:1.5.6'
     implementation 'com.airbnb.android:lottie:4.2.0'
 
+    // Implementation of navigation component
     def nav_version = "2.5.3"
     // Kotlin
     implementation("androidx.navigation:navigation-fragment-ktx:$nav_version")
