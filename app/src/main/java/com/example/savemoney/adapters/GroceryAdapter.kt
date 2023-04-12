@@ -16,7 +16,11 @@ import com.example.savemoney.R
 class GroceryAdapter : RecyclerView.Adapter<GroceryAdapter.GroceryViewHolder>() {
 
     interface ItemClickListener{
+
         fun onItemClicked(updateItem: GroceryEntity){
+        }
+
+        fun onDeleteClicked(deleteItem:GroceryEntity){
         }
     }
 
@@ -30,6 +34,7 @@ class GroceryAdapter : RecyclerView.Adapter<GroceryAdapter.GroceryViewHolder>() 
         RecyclerView.ViewHolder(binding.root) {
         val tvGroceryName = binding.tvGroceryName
         val backgroundOfLinearLayout = binding.mainLayout
+        val imageDeleteButton = binding.imageDeleteButton
     }
 
     // This method inflates the layout and creates a ViewHolder instance for each grocery item.
@@ -56,6 +61,10 @@ class GroceryAdapter : RecyclerView.Adapter<GroceryAdapter.GroceryViewHolder>() 
 
         holder.tvGroceryName.setOnClickListener {
             itemClickListener?.onItemClicked(grocery)
+        }
+
+        holder.imageDeleteButton.setOnClickListener {
+            itemClickListener?.onDeleteClicked(grocery)
         }
 
         if (position % 2 == 0){

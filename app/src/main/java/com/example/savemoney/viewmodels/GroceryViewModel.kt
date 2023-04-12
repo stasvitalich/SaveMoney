@@ -6,6 +6,7 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.savemoney.data.entities.GroceryEntity
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
 class GroceryViewModel(private val repository: GroceryRepository) : ViewModel() {
@@ -39,8 +40,8 @@ class GroceryViewModel(private val repository: GroceryRepository) : ViewModel() 
     }
 
     fun deleteGrocery(grocery: GroceryEntity) {
-        viewModelScope.launch {
-            repository.delete(grocery)
+        viewModelScope.launch(Dispatchers.IO) {
+            repository.deleteGrocery(grocery)
             fetchAllGroceries()
         }
     }

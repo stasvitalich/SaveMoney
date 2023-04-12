@@ -16,7 +16,7 @@ class GroceryRepository(private val groceryDao: GroceryDao) {
         groceryDao.update(groceryEntity)
     }
 
-    suspend fun delete(groceryEntity: GroceryEntity) {
-        groceryDao.delete(groceryEntity)
+    suspend fun deleteGrocery(grocery: GroceryEntity) {
+        groceryDao.deleteGrocery(grocery)
     }
 }

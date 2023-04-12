@@ -10,15 +10,15 @@ interface GroceryDao {
 
     // Inserts a new grocery item into the Grocery-table.
     @Insert
-    suspend fun insert(productEntity: GroceryEntity)
+    suspend fun insert(grocery: GroceryEntity)
 
     // Updates an existing grocery item in the Grocery-table.
     @Update
-    suspend fun update(productEntity: GroceryEntity)
+    suspend fun update(grocery: GroceryEntity)
 
     // Deletes a grocery item from the Grocery-table.
     @Delete
-    suspend fun delete(productEntity: GroceryEntity)
+    suspend fun deleteGrocery(grocery: GroceryEntity)
 
     // Retrieves all grocery items from the Grocery-table.
     // Returns a Flow object containing a list of grocery items.

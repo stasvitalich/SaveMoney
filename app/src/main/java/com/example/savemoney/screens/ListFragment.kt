@@ -17,6 +17,8 @@ import com.example.savemoney.data.entities.GroceryEntity
 import com.example.savemoney.databinding.FragmentListBinding
 import com.example.savemoney.viewmodels.GroceryViewModel
 import android.view.inputmethod.EditorInfo
+import androidx.lifecycle.lifecycleScope
+import kotlinx.coroutines.launch
 
 // The ListFragment class is responsible for displaying a list of grocery items and
 // allowing users to add new items.
@@ -29,6 +31,12 @@ class ListFragment : Fragment(), GroceryAdapter.ItemClickListener {
     override fun onItemClicked(updateItem: GroceryEntity) {
         updateItem.isCompleted = !updateItem.isCompleted
         groceryViewModel.updateGrocery(updateItem)
+    }
+
+    override fun onDeleteClicked(deleteItem: GroceryEntity){
+        lifecycleScope.launch {
+            groceryViewModel.deleteGrocery(deleteItem)
+        }
     }
 
     // Inflate the layout using the FragmentListBinding class.
