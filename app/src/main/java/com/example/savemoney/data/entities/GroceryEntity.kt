@@ -19,6 +19,7 @@ data class GroceryEntity(
     // This field is stored in the "Grocery_name" column of the table.
     @ColumnInfo(name = "Grocery_name")
     val name: String = "",
+    var isCompleted: Boolean = false, // The variable responsible for the strikethrough state.
 
     // Represents the quantity of the product (e.g., in kilograms, bottles, or packs).
     // This field is stored in the "Grocery_Quantity" column of the table.

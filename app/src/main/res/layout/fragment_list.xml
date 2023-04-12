@@ -26,16 +26,11 @@
                 android:layout_width="0dp"
                 android:layout_height="40dp"
                 android:layout_weight="1"
+                android:fontFamily="@font/montserrat_medium"
                 android:gravity="center_vertical"
                 android:paddingLeft="10dp"
                 android:text="@string/Update" />
 
-            <ImageView
-                android:id="@+id/imageSaveButton"
-                android:layout_width="wrap_content"
-                android:layout_height="40dp"
-                android:paddingRight="10dp"
-                android:src="@drawable/ic_baseline_save_24" />
         </LinearLayout>
     </androidx.cardview.widget.CardView>
 
@@ -47,21 +42,32 @@
         android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
         android:background="@android:color/transparent"
+        android:fontFamily="@font/montserrat_medium"
         android:hint="Добавить элемент"
+        android:imeOptions="actionDone"
+        android:inputType="text"
         android:paddingBottom="2dp"
         android:textSize="20sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintEnd_toStartOf="@+id/imageSaveButton"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/cardView3"
         tools:ignore="TouchTargetSizeCheck" />
+
+    <ImageView
+        android:id="@+id/imageSaveButton"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:paddingRight="10dp"
+        android:src="@drawable/ic_baseline_save_24"
+        app:layout_constraintBottom_toTopOf="@+id/recyclerView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/inputEditText" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerView"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginEnd="8dp"
+        android:layout_marginTop="8dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

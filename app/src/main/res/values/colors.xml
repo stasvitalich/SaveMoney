@@ -11,6 +11,8 @@
     <color name="mygrey">#606564</color>
     <color name="unchecked">#FF0033</color>
     <color name="brigthseaweed">#3FA797</color>
+    <color name="save">#5DAF4A</color>
     <color name="delete">#9D454E</color>
     <color name="Note">#FFE19F</color>
+    <color name="NoteDark">#E8BF64</color>
 </resources>
