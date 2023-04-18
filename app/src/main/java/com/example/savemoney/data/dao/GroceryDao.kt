@@ -9,7 +9,7 @@ import kotlinx.coroutines.flow.Flow
 interface GroceryDao {
 
     // Inserts a new grocery item into the Grocery-table.
-    @Insert
+    @Insert(onConflict = OnConflictStrategy.IGNORE)
     suspend fun insert(grocery: GroceryEntity)
 
     // Updates an existing grocery item in the Grocery-table.
@@ -36,5 +36,7 @@ interface GroceryDao {
 
     @Query("SELECT MAX('order') FROM grocery_table")
     suspend fun getMaxOrder(): Int?
+
+
 
 }

@@ -69,8 +69,12 @@ class ListFragment : Fragment(), GroceryAdapter.ItemClickListener {
             val userInput = binding.inputEditText.text.toString()
             if (userInput.isNotEmpty()) {
                 lifecycleScope.launch {
-                    val newOrder = groceryViewModel.getMaxOrder() + 1
-                    val newGrocery = GroceryEntity(name = userInput, order = newOrder)
+                    val newOrder = (groceryAdapter.groceries.lastOrNull()?.order ?: -1) + 1
+                    val newGrocery = GroceryEntity(
+                        name = userInput,
+                        order = newOrder,
+                        creationTimestamp = System.currentTimeMillis()
+                    )
                     groceryViewModel.insertGrocery(newGrocery)
                 }
                 binding.inputEditText.setText("") // Clear input field after saving item.
@@ -82,8 +86,12 @@ class ListFragment : Fragment(), GroceryAdapter.ItemClickListener {
                 val userInput = binding.inputEditText.text.toString()
                 if (userInput.isNotEmpty()) {
                     lifecycleScope.launch {
-                        val newOrder = groceryViewModel.getMaxOrder() + 1
-                        val newGrocery = GroceryEntity(name = userInput, order = newOrder)
+                        val newOrder = (groceryAdapter.groceries.lastOrNull()?.order ?: -1) + 1
+                        val newGrocery = GroceryEntity(
+                            name = userInput,
+                            order = newOrder,
+                            creationTimestamp = System.currentTimeMillis()
+                        )
                         groceryViewModel.insertGrocery(newGrocery)
                     }
                     binding.inputEditText.setText("") // Clear input field after saving item.

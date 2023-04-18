@@ -27,5 +27,9 @@ data class GroceryEntity(
     val quantity: String = "",
 
     @ColumnInfo(name = "Order_of_elements")
-    var order: Int
+    var order: Int,
+
+    @ColumnInfo(name = "creationTimestamp")
+    val creationTimestamp: Long
+
 )
