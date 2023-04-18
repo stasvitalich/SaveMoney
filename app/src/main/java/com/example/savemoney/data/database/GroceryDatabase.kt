@@ -9,7 +9,7 @@ import com.example.savemoney.data.dao.GroceryDao
 import com.example.savemoney.data.entities.GroceryEntity
 
 // Defines the database with the entities and the version, exportSchema set to false.
-@Database(entities = [GroceryEntity::class], version = 2, exportSchema = false)
+@Database(entities = [GroceryEntity::class], version = 3, exportSchema = false)
 abstract class GroceryDatabase : RoomDatabase() {
 
     // Provides access to the GroceryDao for database operations.

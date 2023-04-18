@@ -19,4 +19,12 @@ class GroceryRepository(private val groceryDao: GroceryDao) {
     suspend fun deleteGrocery(grocery: GroceryEntity) {
         groceryDao.deleteGrocery(grocery)
     }
+
+    suspend fun getGroceriesWithOrdersBetween(start: Int, end: Int): List<GroceryEntity> {
+        return groceryDao.getGroceriesWithOrdersBetween(start, end)
+    }
+
+    suspend fun getMaxOrder(): Int? {
+        return groceryDao.getMaxOrder()
+    }
 }

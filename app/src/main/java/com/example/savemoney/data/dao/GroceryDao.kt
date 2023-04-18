@@ -22,7 +22,7 @@ interface GroceryDao {
 
     // Retrieves all grocery items from the Grocery-table.
     // Returns a Flow object containing a list of grocery items.
-    @Query("SELECT * FROM Grocery_table")
+    @Query("SELECT * FROM grocery_table ORDER BY 'order' ASC")
     fun fetchAllGroceries(): Flow<List<GroceryEntity>>
 
     // Retrieves a grocery item from the Grocery-table by the given ID.
@@ -30,4 +30,11 @@ interface GroceryDao {
     // Returns a Flow object containing the found grocery item.
     @Query("SELECT * FROM Grocery_table where id=:id")
     fun fetchGroceriesById(id: Int): Flow<GroceryEntity>
+
+    @Query("SELECT * FROM grocery_table WHERE 'order' BETWEEN :start AND :end ORDER BY 'order' ASC")
+    suspend fun getGroceriesWithOrdersBetween(start: Int, end: Int): List<GroceryEntity>
+
+    @Query("SELECT MAX('order') FROM grocery_table")
+    suspend fun getMaxOrder(): Int?
+
 }

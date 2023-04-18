@@ -18,7 +18,13 @@ import com.example.savemoney.databinding.FragmentListBinding
 import com.example.savemoney.viewmodels.GroceryViewModel
 import android.view.inputmethod.EditorInfo
 import androidx.lifecycle.lifecycleScope
+import androidx.recyclerview.widget.ItemTouchHelper
+import androidx.recyclerview.widget.RecyclerView
 import kotlinx.coroutines.launch
+import java.util.*
+import kotlin.math.max
+import kotlin.math.min
+import android.util.Log
 
 // The ListFragment class is responsible for displaying a list of grocery items and
 // allowing users to add new items.
@@ -27,13 +33,14 @@ class ListFragment : Fragment(), GroceryAdapter.ItemClickListener {
     private lateinit var binding: FragmentListBinding
     private lateinit var groceryViewModel: GroceryViewModel
     private lateinit var groceryAdapter: GroceryAdapter
+    private var fromPosition: Int? = null
 
     override fun onItemClicked(updateItem: GroceryEntity) {
         updateItem.isCompleted = !updateItem.isCompleted
         groceryViewModel.updateGrocery(updateItem)
     }
 
-    override fun onDeleteClicked(deleteItem: GroceryEntity){
+    override fun onDeleteClicked(deleteItem: GroceryEntity) {
         lifecycleScope.launch {
             groceryViewModel.deleteGrocery(deleteItem)
         }
@@ -61,29 +68,36 @@ class ListFragment : Fragment(), GroceryAdapter.ItemClickListener {
         binding.imageSaveButton.setOnClickListener {
             val userInput = binding.inputEditText.text.toString()
             if (userInput.isNotEmpty()) {
-                val newGrocery = GroceryEntity(name = userInput)
-                groceryViewModel.insertGrocery(newGrocery)
+                lifecycleScope.launch {
+                    val newOrder = groceryViewModel.getMaxOrder() + 1
+                    val newGrocery = GroceryEntity(name = userInput, order = newOrder)
+                    groceryViewModel.insertGrocery(newGrocery)
+                }
                 binding.inputEditText.setText("") // Clear input field after saving item.
             }
         }
 
-        // The Enter button on the keyboard now adds new elements.
         binding.inputEditText.setOnEditorActionListener { _, actionId, _ ->
-            if (actionId == EditorInfo.IME_ACTION_DONE){
-                var userInput = binding.inputEditText.text.toString()
-                if (userInput.isNotEmpty()){
-                    val newGrocery = GroceryEntity(name = userInput)
-                    groceryViewModel.insertGrocery(newGrocery)
+            if (actionId == EditorInfo.IME_ACTION_DONE) {
+                val userInput = binding.inputEditText.text.toString()
+                if (userInput.isNotEmpty()) {
+                    lifecycleScope.launch {
+                        val newOrder = groceryViewModel.getMaxOrder() + 1
+                        val newGrocery = GroceryEntity(name = userInput, order = newOrder)
+                        groceryViewModel.insertGrocery(newGrocery)
+                    }
                     binding.inputEditText.setText("") // Clear input field after saving item.
                 }
                 true
-            }else{
+            } else {
                 false
             }
         }
 
+
         // Initialize the GroceryDao, repository, and custom ViewModel factory.
-        val groceryDao: GroceryDao = GroceryDatabase.getDatabase(requireActivity().applicationContext).groceryDao()
+        val groceryDao: GroceryDao =
+            GroceryDatabase.getDatabase(requireActivity().applicationContext).groceryDao()
         val repository = GroceryRepository(groceryDao)
         val viewModelFactory = object : ViewModelProvider.Factory {
             override fun <T : ViewModel> create(modelClass: Class<T>): T {
@@ -96,7 +110,10 @@ class ListFragment : Fragment(), GroceryAdapter.ItemClickListener {
         }
 
         // Obtain the GroceryViewModel instance using the custom factory.
-        groceryViewModel = ViewModelProvider(this, viewModelFactory).get(GroceryViewModel::class.java)
+        groceryViewModel =
+            ViewModelProvider(this, viewModelFactory).get(GroceryViewModel::class.java)
+
+
 
         // Set up the RecyclerView's layout manager and adapter.
         binding.recyclerView.layoutManager = LinearLayoutManager(requireContext())
@@ -105,9 +122,51 @@ class ListFragment : Fragment(), GroceryAdapter.ItemClickListener {
         // Observe changes to the groceries LiveData and update the adapter accordingly.
         groceryViewModel.groceries.observe(viewLifecycleOwner) { groceries ->
             groceries?.let {
-                groceryAdapter.setGroceries(it)
+                groceryAdapter.setGroceries(it.sortedBy { grocery -> grocery.order })
             }
         }
+
+        val itemTouchHelper = ItemTouchHelper(object : ItemTouchHelper.SimpleCallback(
+            ItemTouchHelper.UP or
+                    ItemTouchHelper.DOWN, 0
+        ) {
+            override fun onMove(
+                recyclerView: RecyclerView,
+                source: RecyclerView.ViewHolder,
+                target: RecyclerView.ViewHolder
+            ): Boolean {
+                val sourcePosition = source.adapterPosition
+                val targetPosition = target.adapterPosition
+
+                Collections.swap(groceryAdapter.groceries, sourcePosition, targetPosition)
+                groceryAdapter.notifyItemMoved(sourcePosition, targetPosition)
+
+                if (fromPosition == null) {
+                    fromPosition = sourcePosition
+                }
+
+                return true
+            }
+
+            override fun clearView(recyclerView: RecyclerView, viewHolder: RecyclerView.ViewHolder) {
+                super.clearView(recyclerView, viewHolder)
+
+                val toPosition = viewHolder.adapterPosition
+                if (fromPosition != null) {
+                    lifecycleScope.launch {
+                        val updatedItems = groceryViewModel.updateOrdersInDatabase(groceryAdapter.groceries, fromPosition!!, toPosition)
+                        groceryAdapter.setGroceries(updatedItems)
+                    }
+                }
+                fromPosition = null
+            }
+
+            override fun onSwiped(viewHolder: RecyclerView.ViewHolder, direction: Int) {
+                TODO("Not yet implemented")
+            }
+        })
+
+        itemTouchHelper.attachToRecyclerView(binding.recyclerView)
     }
 
     // Create a new instance of the ListFragment.

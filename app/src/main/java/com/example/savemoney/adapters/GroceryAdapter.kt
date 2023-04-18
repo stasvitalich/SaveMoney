@@ -27,7 +27,7 @@ class GroceryAdapter : RecyclerView.Adapter<GroceryAdapter.GroceryViewHolder>() 
     var itemClickListener: ItemClickListener? = null
 
     // A list to store the grocery entities to be displayed in the RecyclerView.
-    private var groceries: List<GroceryEntity> = ArrayList()
+    var groceries: List<GroceryEntity> = ArrayList()
 
     // ViewHolder class for each grocery item.
     class GroceryViewHolder(private val binding: GroceryItemBinding) :
@@ -70,11 +70,11 @@ class GroceryAdapter : RecyclerView.Adapter<GroceryAdapter.GroceryViewHolder>() 
         if (position % 2 == 0){
             holder.backgroundOfLinearLayout.setBackgroundColor(
                 ContextCompat.getColor(holder.itemView.context,
-                R.color.NoteDark))
+                    R.color.NoteDark))
         }else{
             holder.backgroundOfLinearLayout.setBackgroundColor(
                 ContextCompat.getColor(holder.itemView.context,
-                R.color.Note))
+                    R.color.Note))
         }
     }
 
@@ -84,6 +84,7 @@ class GroceryAdapter : RecyclerView.Adapter<GroceryAdapter.GroceryViewHolder>() 
     }
 
     // This method sets the groceries list to a new list and notifies the adapter about data changes.
+    @JvmName("setGroceries1")
     fun setGroceries(groceryList: List<GroceryEntity>) {
         this.groceries = groceryList
         notifyDataSetChanged()

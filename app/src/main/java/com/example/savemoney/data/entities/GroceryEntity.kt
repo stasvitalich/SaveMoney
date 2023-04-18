@@ -24,5 +24,8 @@ data class GroceryEntity(
     // Represents the quantity of the product (e.g., in kilograms, bottles, or packs).
     // This field is stored in the "Grocery_Quantity" column of the table.
     @ColumnInfo(name = "Grocery_Quantity")
-    val quantity: String = ""
+    val quantity: String = "",
+
+    @ColumnInfo(name = "Order_of_elements")
+    var order: Int
 )
